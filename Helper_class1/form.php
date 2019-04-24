@@ -80,12 +80,9 @@ class Form {
      $form->text("5", "33", "Bonjour Becode");
      $form->rad("toc", "toctoc", "toc");
      $form->check("test", "test2");
+     $form->submit("envoyer");
      $form->endform();
      
-
-    
-
-
 
 
 
