@@ -22,8 +22,8 @@ class Html {
 $html = new Html();
 $html->css("lien css");
 $html->meta("balise meta");
-$html->img("src img");
-$html->lien("lien");
+$html->img("../carpark/img/audi.jpg");
+$html->lien("www.google.be");
 
 
 ?>
