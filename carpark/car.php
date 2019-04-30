@@ -2,84 +2,87 @@
 class voiture {
 
    
-    public function img($image){
-        echo"<img src=".$image."/>";
-    
+    public function __construct($km, $img, $marque, $color,$modele, $immatriculation,  $dateCirculation,  $kilo){
+        $this->kilometre = $km;
+        $this->image = $img;
+        $this->marque = $marque;
+        $this->col = $color;
+        $this->mod = $modele;
+        $this->imma = $immatriculation;   
+        $this->datCirc = $dateCirculation;
+        $this->poids =$kilo; 
+
     }
-
-    public function mat ($matricule){
-        echo '<p>'.$matricule.'</p>';
-        $origine = substr($matricule, 0, 2);
-        switch ($origine) {
-            case 'BE':
-                echo 'Origine : Belgique';
-                break;
-
-            case 'FR':
-                echo 'Origine : France';
-                break;
-
-            case 'DE':
-                echo 'Origine : Allemagne';     
-                break;
-
-            default:
-                echo'Pas homologuer';
-                break;
-        }
+            public function check (){
+                $origine = substr($this->imma, 0, 2);
+                switch ($origine) {
+                    case 'BE':
+                        echo 'Origine : Belgique';
+                        break;
         
+                    case 'FR':
+                        echo 'Origine : France';
+                        break;
+        
+                    case 'DE':
+                        echo 'Origine : Allemagne';     
+                        break;
+        
+                    default:
+                        echo'Pas homologuer';
+                        break;
+                }
+                if ($this->marque === "Audi") {
+                    echo'<br> Disponibilité : Réserver';
+                }
+                else {
+                    echo ' <br> Disponibilité : Free';
+                }
+                if ($this->poids>=3.5) {
+                    echo'<br> Usage : Utilitaire';
+                }
+                else {
+                    echo '<br> Usage : Commercial';
+                }
+                if (  $this->kilometre<100000) {
+                    echo' <br> Moteur : Low';
+        
+            } 
+           elseif (  $this->kilometre>100000) {
+               echo'<br> Moteur : Middle';
+           }
+           elseif (  $this->kilometre>200000) {
+               echo'<br> Moteur : Hight';
+           }
 
-    } 
-    public function datCirc($dateCirculation){
-        echo '<p> Mise en circulation : '.$dateCirculation.'</p>';
+            $datetime = date("Y")-$this->datCirc;
+          
 
-    } 
-    public function kilo($kilom) {
-        echo '<p> Kilomètre : '.$kilom.'</p>';
-        if ($kilom<100000) {
-            echo'Low';
+            echo '</br> Ancienneté du véhicule : '.$datetime.' ans';
+            
 
-    } 
-   elseif ($kilom>100000) {
-       echo'Middle';
-   }
-   elseif ($kilom>200000) {
-       echo'Hight';
-   }
-}
+
+                
+        
+            } 
+
+    public function display(){
+        echo "<img class='card-img-top' src='".$this->image."'/>";
+        echo '<p>Marque du véhicule : '.$this->marque.'</p>';
+        echo '<p> Modèle : '.$this->mod.'</p>';
+        echo '<p> Couleur : '.$this->col.'</p>';
+        echo '<p> Kilometrage : '.$this->kilometre.'</p>';
+        echo '<p> Poids : '.$this->poids.' tonne </p>';
+        echo '<p>Numero immatriculation : '.$this->imma.'</p>';
+        echo '<p> Mise en circulation : '.$this->datCirc.'</p>';
+        echo    $this->check();
+        
+    }
     public function rouler(){
-           $this->$kilom +=100000; 
-
-        
-}
-    public function mod($modele){
-        echo '<p> Modèle : '.$modele.'</p>';
-    } 
-    public function marque ($marque){
-        echo '<p> Marque : '.$marque.'</p>';
-        if ($marque=="AUDI") {
-            echo' Disponibilité : Réserver';
-        }
-        else {
-            echo ' Disponibilité : Free';
-        }
-    } 
-    public function col ($color){
-        echo '<p> Couleur : '.$color.'</p>';
-    } 
-    public function  poids ($poids) {
-        echo '<p> Poids : '.$poids.'</p>';
-        if ($poids>=3.5) {
-            echo' Usage : Utilitaire';
-        }
-        else {
-            echo ' Usage : Commercial';
-        }
+        $this->kilometre +=100000;
     }
    
+
+  
+   
 }
-
-
-
-?>
-

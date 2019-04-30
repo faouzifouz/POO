@@ -17,33 +17,42 @@ require 'car.php'
         <div class="row">
             
             <div class="col-md-3">
+                <div class="card">
                 <?php
 
-                $voiture= new voiture();
-                $voiture->img("https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjFgL_kqfXhAhXI26QKHeEVCEQQjRx6BAgBEAU&url=https%3A%2F%2Fwww.audi-mediacenter.com%2Fen%2Fthe-new-audi-tt-and-audi-tts-11105%2Fchassis-11111&psig=AOvVaw2ZbtCfLto_gtt37DMX0qNT&ust=1556628091761930");
-                $voiture->mat("BESUD523");
-                $voiture->datCirc("2 aout 2016");
-                $voiture->kilo("120000 km");
-                $voiture->mod("A3");
-                $voiture->marque("AUDI");
-                $voiture->col("Black");
-                $voiture->poids("2,5 tonne");
-                
-
+                $audi= new Voiture(120000,"img/audi.jpg","Audi","Grise","A3", "BESUD523", 2016, 2.5 );
+                echo $audi->rouler();
+                echo $audi->display();  
                 ?> 
             </div>
+            </div>
             <div class="col-md-3">
+            <div class="card">
                 <?php
-                $voiture= new voiture();
-                $voiture->img("img/al+fa.jpg");
-                $voiture->mat("FRSUD523");
-                $voiture->datCirc("10 septembre 2015");
-                $voiture->kilo("90000 km");
-                $voiture->mod("Romeo");
-                $voiture->marque("Alfa");
-                $voiture->col("grise");
-                $voiture->poids("1,5 tonne");               
+                 $alfa= new Voiture(90000,"img/alfa.jpg","Alfa","Grise","Gris clair", "FRSUD523", 2010, 3.5 );
+                 echo $alfa->display();  
+                     
                 ?> 
+            </div>
+            </div>
+            <div class="col-md-3">
+            <div class="card">
+                <?php
+                 $vw= new Voiture(150000,"img/volkswagen.jpg","Golf","Blache","Beetle", "DESUD523", 2019, 1.5 );
+                 echo $vw->display();  
+                 echo $vw->rouler();
+                     
+                ?> 
+            </div>
+            </div>
+            <div class="col-md-3">
+            <div class="card">
+                <?php
+                 $alfa= new Voiture(90000,"img/alfa.jpg","Alfa","Grise","Romeo", "FRSUD523", 2010, 3.5 );
+                 echo $alfa->display();  
+                     
+                ?> 
+            </div>
             </div>
             
             
